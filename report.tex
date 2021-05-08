@@ -1,0 +1,93 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{polyglossia}
+\usepackage[margin=2cm]{geometry}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage[type={CC},modifier={by-nc-nd},version={4.0}]{doclicense}
+\usepackage{listings}
+\usepackage[binary-units=true]{siunitx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage[hyphens]{url}
+\edef\restoreparindent{\parindent=\the\parindent\relax}
+\usepackage{parskip}
+\restoreparindent
+
+\usepackage{multicol}
+
+\setmainlanguage{french}
+\setotherlanguage{english}
+
+% Fixes the "Underfull hbox" warnings in the bibliography.
+\apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
+
+\definecolor{blue}{HTML}{377894}
+\definecolor{green}{HTML}{6A8E80}
+\definecolor{grey}{HTML}{EDE5E4}
+\definecolor{dark}{HTML}{2C323D}
+\definecolor{white}{HTML}{FFFFFF}
+\definecolor{yellow}{HTML}{EBCB8B}
+\definecolor{green}{HTML}{94AC82}
+
+\definecolor{eclipseStrings}{RGB}{42,0.0,255}
+\definecolor{eclipseComment}{RGB}{63,127,95}
+\definecolor{eclipseKeywords}{RGB}{0,127,85}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinestyle{bash}{
+  language=bash,
+  alsoletter={.},
+  classoffset=1,
+  morekeywords={Test,Suites,Tests,Snapshots,Time,yarn,add,test,run,v1.21.1},
+  keywordstyle=\color{eclipseKeywords}\bfseries,
+  classoffset=2,
+  morekeywords={PASS},
+  keywordstyle=\color{green}\bfseries,
+  classoffset=3,
+  morekeywords={TransportService.spec.ts, UserService.spec.ts},
+  keywordstyle=\color{blue}\bfseries,
+  classoffset=0
+}
+
+\lstset{
+  backgroundcolor=\color{grey},
+  basicstyle=\fontsize{10}{10}\selectfont\ttfamily,
+  breaklines=true,
+  commentstyle=\color{eclipseStrings},
+  frame=lines,
+  keywordstyle=\color{eclipseKeywords},
+  morekeywords=[2]{1},
+  numbers=left,
+  numberstyle=\scriptsize,
+  showstringspaces=false,
+}
+
+\sisetup{per-mode=symbol}
+
+% Defines a horizontal line.
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+% Automatically increments the number of equations.
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+% Uses dashes for the itemize environment.
+\renewcommand\labelitemi{---}
+
+% Aligns content vertically.
+\newenvironment{vc}{\topskip0pt\vspace*{\fill}\noindent\ignorespaces}{\strut\vfill}
+
+\begin{document}
+\include{src/garde}
+\input{src/acknowledgements}
+%\include{src/license}
+\pagenumbering{arabic}
+\tableofcontents
+\newpage
+\include{src/intro}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "latex"
+%%% End:
